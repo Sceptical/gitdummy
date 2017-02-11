@@ -1,3 +1,3 @@
 def kitapoku():
 
- print("KİTAP")
+ print("KİTArP")
