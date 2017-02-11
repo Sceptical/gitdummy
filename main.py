@@ -1,1 +1,3 @@
-ams
+def kitapoku():
+
+ print("KİTAP")
