@@ -1,1 +1,24 @@
-def mergeSort(alist):    print("Splitting ",alist)    if len(alist)>1:        mid = len(alist)//2        lefthalf = alist[:mid]        righthalf = alist[mid:]        mergeSort(lefthalf)        mergeSort(righthalf)        i=0        j=0        k=0        while i < len(lefthalf) and j < len(righthalf):            if lefthalf[i] < righthalf[j]:                alist[k]=lefthalf[i]                i=i+1            else:                alist[k]=righthalf[j]                j=j+1            k=k+1        while i < len(lefthalf):            alist[k]=lefthalf[i]            i=i+1            k=k+1        while j < len(righthalf):            alist[k]=righthalf[j]            j=j+1            k=k+1    print("Merging ",alist)alist = [54,26,93,17,77,31,44,55,20]mergeSort(alist)print(alist)
+def msort(x):
+    result = []
+    if len(x) < 2:
+        return x
+    mid = int(len(x)/2)
+    y = msort(x[:mid])
+    z = msort(x[mid:])
+    while (len(y) > 0) or (len(z) > 0):
+        if len(y) > 0 and len(z) > 0:
+            if y[0] > z[0]:
+                result.append(z[0])
+                z.pop(0)
+            else:
+                result.append(y[0])
+                y.pop(0)
+        elif len(z) > 0:
+            for i in z:
+                result.append(i)
+                z.pop(0)
+        else:
+            for i in y:
+                result.append(i)
+                y.pop(0)
+    return result
